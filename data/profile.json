@@ -1,0 +1,109 @@
+{
+  "name": {
+    "first": "Omkar",
+    "last": "Awaze",
+    "full": "Omkar Awaze"
+  },
+  "email": "omkarawaze1915@gmail.com",
+  "tagline": "Building practical, AI-powered applications with modern web technologies.",
+  "description": "B.Tech Computer Technology student and Python Developer building full-stack and AI-powered applications.",
+  "roles": {
+    "short": "Full-Stack Developer",
+    "detailed": "B.Tech CT Student \u00b7 Python Developer Intern \u00b7 AI Enthusiast"
+  },
+  "location": {
+    "based": "Nagpur, Maharashtra, India",
+    "availability": "Remotely"
+  },
+  "available": true,
+  "bio": "B.Tech Computer Technology student and Python Developer Intern passionate about backend development, full-stack engineering, and AI-powered applications. I build practical projects using Python, JavaScript, and modern web technologies, explore Generative AI and LLM integrations, and practice Data Structures & Algorithms daily to sharpen my problem-solving skills. Always learning, always building.",
+  "stats": [
+    { "value": "1+", "label": "Years Coding" },
+    { "value": "3+", "label": "Projects Built" },
+    { "value": "1",  "label": "Internship" }
+  ],
+  "skills": [
+    "Python Developer",
+    "Full Stack Dev",
+    "Problem Solver",
+    "AI Explorer",
+    "React & Node.js",
+    "FastAPI & Flask",
+    "REST APIs",
+    "Open Source",
+    "DSA Practitioner",
+    "Git & GitHub"
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Python Developer Intern",
+      "company": "Widesoftech",
+      "companyShort": "WIDESOFTECH",
+      "type": "Internship",
+      "location": "",
+      "period": "2026",
+      "periodEnd": "",
+      "bullets": [
+        "Worked on backend development tasks using Python during a hands-on, month-long internship.",
+        "Collaborated with the team on practical software development tasks and real-world coding practices.",
+        "Gained exposure to professional development workflows, version control, and writing clean, maintainable code."
+      ],
+      "desc": "Python Developer Intern focused on backend development tasks, building hands-on experience with professional software development workflows.",
+      "tech": ["Python", "Git"]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "OMIRA",
+      "subtitle": "Personal AI Assistant for Windows",
+      "type": "AI Assistant",
+      "link": "https://github.com/Omkar090607/Omira-",
+      "image": "/assets/project-artgenio.png",
+      "tech": ["Python", "FastAPI", "Google Gemini", "OpenAI", "Ollama", "JavaScript", "WebSockets"],
+      "desc": "A Windows-based personal AI assistant that lets users interact with their computer using voice commands in English, Hindi, and Marathi. Features Gemini integration with OpenAI/Ollama fallback, system control, Gmail and WhatsApp automation, file summarization, and a system-tray desktop mode."
+    },
+    {
+      "id": 2,
+      "title": "Public Ledger",
+      "subtitle": "Public Fund Tracking & Transparency Platform",
+      "type": "Web App",
+      "link": "https://github.com/Omkar090607/Cyber-Sparks",
+      "image": "/assets/project-easyfolio.png",
+      "tech": ["Python", "Flask", "SQLite", "Chart.js", "REST APIs"],
+      "desc": "A web application that makes public fund and government project information easier to track and explore, with budget dashboards, state and ministry-based filtering, citizen issue reporting, and Data.gov.in API integration."
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "title": "OMIRA \u2014 Personal AI Assistant for Windows",
+      "platform": "GitHub",
+      "year": "2026",
+      "link": "https://github.com/Omkar090607/Omira-",
+      "desc": "Windows-based personal AI assistant with multilingual voice interaction, Gemini integration, and automation features."
+    },
+    {
+      "id": 2,
+      "title": "Public Ledger \u2014 Fund Tracking Platform",
+      "platform": "GitHub",
+      "year": "2026",
+      "link": "https://github.com/Omkar090607/Cyber-Sparks",
+      "desc": "Web app for tracking public funds and government projects, with transparency dashboards and Data.gov.in API integration."
+    },
+    {
+      "id": 3,
+      "title": "100 Days of DSA",
+      "platform": "GitHub",
+      "year": "2026",
+      "link": "https://github.com/Omkar090607/100_Days_of_DSA",
+      "desc": "Daily Data Structures & Algorithms practice log, documenting solutions across arrays, trees, graphs, and dynamic programming."
+    }
+  ],
+  "socials": [
+    { "label": "GitHub",    "href": "https://github.com/Omkar090607" },
+    { "label": "LinkedIn",  "href": "https://www.linkedin.com/in/omkar-awaze-6322103b1/" },
+    { "label": "Instagram", "href": "https://www.instagram.com/iam_omkar19/" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "site": {
+    "tagline": "Portfolio 2026"
+  },
+  "hero": {
+    "taglineHighlight": "applications",
+    "freelanceNote": "Open to internships & collaborations.",
+    "availableLabel": "Available for work",
+    "pills": ["Python Developer", "Full-Stack Developer", "AI Enthusiast", "DSA Practitioner"],
+    "specialistStat": { "value": "Full-Stack + AI", "label": "Focus" }
+  },
+  "interstitial": {
+    "availabilityLabel": "Availability",
+    "basedInLabel": "Based in",
+    "statLabels": ["Years\ncoding", "Projects\nbuilt", "Internship\ncompleted"]
+  },
+  "footer": {
+    "eyebrow": "Open to internships & collaborations",
+    "ctaLines": ["Building modern", "software & AI", "experiences that"],
+    "ctaAccent": "matter."
+  }
+}
