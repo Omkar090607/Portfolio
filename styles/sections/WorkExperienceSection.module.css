@@ -250,6 +250,10 @@
 
 /* ── Mobile (≤767px) ────────────────────────────── */
 @media (max-width: 767px) {
+  .section {
+    height: 100svh;
+  }
+
   .header {
     padding: 3.5rem clamp(1rem, 4vw, 1.5rem) 0;
   }

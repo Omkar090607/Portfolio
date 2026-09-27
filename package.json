@@ -13,7 +13,7 @@
     "export": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out --nojekyll"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

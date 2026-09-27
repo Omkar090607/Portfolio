@@ -1,11 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
 import { FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube } from 'react-icons/fa'
 import profile from '@/data/profile.json'
-import { withBasePath } from '@/lib/siteConfig'
 import styles from '@/styles/sections/AboutSection.module.css'
 
 const BIO      = profile.bio
@@ -17,7 +15,6 @@ const SOCIALS = profile.socials.map(s => ({ Icon: ICON_MAP[s.label], href: s.hre
 
 export default function AboutSection() {
   const sectionRef  = useRef(null)
-  const photoRef    = useRef(null)
   const contentRef  = useRef(null)
   const socialsRef  = useRef(null)
   const intervalRef = useRef(null)
@@ -36,11 +33,9 @@ export default function AboutSection() {
 
     function resetAnim() {
       clearInterval(intervalRef.current)
-      gsap.killTweensOf(photoRef.current)
       gsap.killTweensOf(contentRef.current)
       const socialIcons = socialsRef.current?.querySelectorAll('a') ?? []
       gsap.killTweensOf(socialIcons)
-      gsap.set(photoRef.current,   { opacity: 0, x: -50 })
       gsap.set(contentRef.current, { opacity: 0, y:  40 })
       gsap.set(socialIcons, { opacity: 0, y: 20 })
       setTyped(0)
@@ -49,7 +44,6 @@ export default function AboutSection() {
 
     function playAnim() {
       resetAnim()
-      gsap.to(photoRef.current,   { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' })
       gsap.to(contentRef.current, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.15 })
       const socialIcons = socialsRef.current?.querySelectorAll('a') ?? []
       gsap.to(socialIcons, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1, delay: 0.5 })
@@ -68,7 +62,7 @@ export default function AboutSection() {
     resetAnim()
 
     function onScroll() {
-      const inRange = Math.abs(scroller.scrollTop - section.offsetTop) < window.innerHeight * 0.5
+      const inRange = Math.abs(scroller.scrollTop - section.offsetTop) < scroller.clientHeight * 0.5
       if (inRange && !isActive)  { isActive = true;  playAnim() }
       if (!inRange && isActive)  { isActive = false; resetAnim() }
     }
@@ -82,40 +76,6 @@ export default function AboutSection() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
-
-      {/* ── Left: photo + signature + socials ───────── */}
-      <div ref={photoRef} className={styles.photoCol}>
-        <div className={styles.photoWrap}>
-          <div className={styles.photoFrame} data-about-photo>
-            <Image
-              src={withBasePath('/assets/011.jpeg')}
-              alt={profile.name.full}
-              fill
-              quality={100}
-              sizes="(min-width: 768px) 30vw, 100vw"
-              className={styles.photoImg}
-            />
-          </div>
-        </div>
-
-        {/* Social icons */}
-        <div ref={socialsRef} className={styles.socials}>
-          {SOCIALS.map(({ Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className={styles.socialLink}
-            >
-              <Icon />
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Right: content ───────────────────────────── */}
       <div ref={contentRef} className={styles.content} data-native-scroll>
 
         {/* Who I Am - label + infinite marquee */}
@@ -147,6 +107,21 @@ export default function AboutSection() {
               </span>
             ))}
           </p>
+        </div>
+
+        <div ref={socialsRef} className={styles.socials}>
+          {SOCIALS.map(({ Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className={styles.socialLink}
+            >
+              <Icon />
+            </a>
+          ))}
         </div>
 
       </div>

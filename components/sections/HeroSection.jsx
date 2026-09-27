@@ -4,7 +4,6 @@ import { useEffect, useRef, Fragment } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
-import { FiArrowUpRight } from 'react-icons/fi'
 import { gsap } from '@/lib/gsap'
 
 import profile from '@/data/profile.json'
@@ -37,15 +36,10 @@ export default function HeroSection() {
   const lastName       = useRef(null)
   const photoRef       = useRef(null)
   const pillsRef       = useRef(null)
-  const ctaBtnRef      = useRef(null)
   const statsRef       = useRef(null)
   const taglineCardRef = useRef(null)
   const availCardRef   = useRef(null)
   const socialRef      = useRef(null)
-
-  function handleViewProjects() {
-    window.dispatchEvent(new CustomEvent('navigate-to-index', { detail: 3 }))
-  }
 
   useEffect(() => {
     const section = sectionRef.current
@@ -54,7 +48,7 @@ export default function HeroSection() {
     const fadeY = [
       greetRef.current, roleRef.current,
       firstName.current, lastName.current,
-      pillsRef.current, ctaBtnRef.current, statsRef.current,
+      pillsRef.current, statsRef.current,
     ].filter(Boolean)
 
     const fadeX = [taglineCardRef.current, availCardRef.current].filter(Boolean)
@@ -71,7 +65,6 @@ export default function HeroSection() {
       .to(lastName.current,       { opacity: 1, y: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.4')
       .to(photoRef.current,       { opacity: 1, x: 0, duration: 0.7,  ease: 'power2.out' }, '-=0.5')
       .to(pillsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
-      .to(ctaBtnRef.current,      { opacity: 1, y: 0, duration: 0.4,  ease: 'power2.out' }, '-=0.2')
       .to(statsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.2')
       .to(taglineCardRef.current, { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.5')
       .to(availCardRef.current,   { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
@@ -158,11 +151,6 @@ export default function HeroSection() {
             </Fragment>
           ))}
         </div>
-
-        {/* View Projects CTA */}
-        <button ref={ctaBtnRef} type="button" className={styles.viewBtn} onClick={handleViewProjects}>
-           View Projects <FiArrowUpRight />
-        </button>
 
         {/* Stats Row */}
         <div ref={statsRef} className={styles.stats}>

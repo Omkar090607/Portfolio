@@ -88,7 +88,7 @@ export default function ProjectsSection() {
       trigger:  section,
       scroller,
       start:    'top top',
-      end:      () => `+=${(n - 1) * window.innerHeight}`,
+      end:      () => `+=${(n - 1) * scroller.clientHeight}`,
       onUpdate: (self) => {
         tl.progress(self.progress)
 
@@ -109,7 +109,7 @@ export default function ProjectsSection() {
   }, [])
 
   return (
-    <div style={{ height: `${PROJECTS.length * 100}vh` }}>
+    <div style={{ height: `${PROJECTS.length * 100}svh` }}>
       <section ref={sectionRef} className={styles.section}>
 
         {/* Top bar */}

@@ -75,10 +75,6 @@ function getGreeting() {
   return 'Good evening'
 }
 
-function handleViewProjects() {
-  window.dispatchEvent(new CustomEvent('navigate-to-index', { detail: 3 }))
-}
-
 export default function PublicationsFooterSection() {
   const wrapperRef = useRef(null)
   const stickyRef  = useRef(null)
@@ -216,7 +212,7 @@ export default function PublicationsFooterSection() {
 
     // ── Scroll-driven animation ───────────────────────────────
     function onScroll() {
-      const vh   = window.innerHeight
+      const vh   = scroller.clientHeight
       // getBoundingClientRect is reliable regardless of offsetParent chain or navbar
       const dist = -wrapper.getBoundingClientRect().top
 

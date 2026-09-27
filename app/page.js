@@ -32,6 +32,10 @@ export default function Home() {
     const el = mainRef.current
     if (!el) return
 
+    function getStepHeight() {
+      return el.clientHeight || window.innerHeight
+    }
+
     function motionDuration(desktop, mobile) {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 0.01
       return window.matchMedia('(max-width: 767px)').matches ? mobile : desktop
@@ -88,7 +92,7 @@ export default function Home() {
 
       // Top → footer: fade-cut instead of scrolling forward through all sections
       if (idxRef.current === 0 && idx === TOTAL - 1) {
-        fadeLoop((TOTAL - 1) * window.innerHeight, TOTAL - 1)
+        fadeLoop((TOTAL - 1) * getStepHeight(), TOTAL - 1)
         return
       }
 
@@ -96,7 +100,7 @@ export default function Home() {
       busyRef.current = true
       tweenRef.current?.kill()
       tweenRef.current = gsap.to(el, {
-        scrollTop: idx * window.innerHeight,
+        scrollTop: idx * getStepHeight(),
         duration: motionDuration(0.85, 0.65),
         ease: 'power2.inOut',
         onComplete: finishTransition,
@@ -138,19 +142,15 @@ export default function Home() {
 
     function onScroll() {
       if (!busyRef.current) {
-        idxRef.current = Math.round(el.scrollTop / window.innerHeight)
+        idxRef.current = Math.round(el.scrollTop / getStepHeight())
       }
     }
 
-    function onNavigate(event) {
-      const target = Number(event.detail)
-      if (Number.isInteger(target)) goTo(target)
-    }
-
-    // Footer video ends → same fade-cut loop back to top
-    function onFooterLoop() {
-      if (busyRef.current) return
-      fadeLoop(0, 0)
+    function onResize() {
+      tweenRef.current?.kill()
+      busyRef.current = false
+      pendingStepRef.current = 0
+      el.scrollTop = idxRef.current * getStepHeight()
     }
 
     el.addEventListener('wheel',  onWheel,  { passive: false })
@@ -158,8 +158,7 @@ export default function Home() {
     el.addEventListener('touchstart', onTouchStart, { passive: true })
     el.addEventListener('touchmove',  onTouchMove,  { passive: false })
     el.addEventListener('touchend',   onTouchEnd,   { passive: true })
-    window.addEventListener('navigate-to-index', onNavigate)
-    window.addEventListener('footer-loop-back', onFooterLoop)
+    window.addEventListener('resize', onResize)
 
     return () => {
       el.removeEventListener('wheel',  onWheel)
@@ -167,8 +166,7 @@ export default function Home() {
       el.removeEventListener('touchstart', onTouchStart)
       el.removeEventListener('touchmove',  onTouchMove)
       el.removeEventListener('touchend',   onTouchEnd)
-      window.removeEventListener('navigate-to-index', onNavigate)
-      window.removeEventListener('footer-loop-back', onFooterLoop)
+      window.removeEventListener('resize', onResize)
       tweenRef.current?.kill()
       clearTimeout(wheelTimerRef.current)
       pendingStepRef.current = 0

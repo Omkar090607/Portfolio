@@ -282,6 +282,10 @@
 
 /* ── Mobile ──────────────────────────────────── */
 @media (max-width: 767px) {
+  .section,
+  .track,
+  .slide { height: 100svh; }
+
   .slideContent {
     grid-template-columns: 1fr;
     align-items: flex-end;

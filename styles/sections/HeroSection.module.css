@@ -177,34 +177,6 @@
   flex-shrink: 0;
 }
 
-/* ─── View Projects Button ───────────────────────────────── */
-.viewBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--accent);
-  color: #ffffff;
-  font-family: var(--font-baloo), sans-serif;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 0.65rem 1.6rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  align-self: flex-start;
-  letter-spacing: 0.01em;
-}
-
-.viewBtn:hover {
-  background: var(--accent-hover);
-}
-
-.viewBtn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
 /* ─── Stats Row ──────────────────────────────────────────── */
 .stats {
   display: flex;
@@ -347,7 +319,6 @@
   .pills       { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.4rem; }
   .pill        { font-size: 0.62rem; padding: 0.32rem 0.5rem; text-align: center; white-space: normal; flex: unset; }
   .pillDot     { display: none; }
-  .viewBtn     { font-size: 0.78rem; padding: 0.55rem 1.2rem; }
 }
 
 @media (max-width: 374px) {

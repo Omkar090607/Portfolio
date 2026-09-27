@@ -11,10 +11,6 @@ import styles from '@/styles/sections/VideoIntro.module.css'
 
 const CinematicLayer = dynamic(() => import('@/components/three/CinematicLayer'), { ssr: false })
 
-function scrollNext() {
-  window.dispatchEvent(new CustomEvent('navigate-to-index', { detail: 1 }))
-}
-
 export default function VideoIntro() {
   const bgImgRef   = useRef(null)
   const mainImgRef = useRef(null)
@@ -122,15 +118,14 @@ export default function VideoIntro() {
       </div>
 
       {/* 6 - Scroll cue */}
-      <button
+      <div
         ref={scrollRef}
         className={styles.scrollCue}
-        onClick={scrollNext}
-        aria-label="Scroll to next section"
+        aria-hidden="true"
       >
         <span className={styles.scrollLabel}>Scroll</span>
         <span className={styles.scrollLine} />
-      </button>
+      </div>
 
     </section>
   )

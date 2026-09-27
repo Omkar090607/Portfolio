@@ -189,16 +189,7 @@
   align-items: center;
   gap: 0.4rem;
   color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  pointer-events: all;
-  transition: color 0.2s;
-  border: none;
-  background: transparent;
-  padding: 0;
-}
-
-.scrollCue:hover {
-  color: #fff;
+  pointer-events: none;
 }
 
 .scrollLabel {
@@ -223,6 +214,7 @@
 }
 
 @media (max-width: 767px) {
+  .section     { height: 100svh; }
   .heroContent { padding: 0 1.5rem; }
   .name        { font-size: clamp(2.8rem, 11vw, 5rem); }
   .controls    { bottom: 1.5rem; right: 1rem; }
