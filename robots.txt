@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://omkar090607.github.io/Portfolio/sitemap.xml
