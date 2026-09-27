@@ -10,8 +10,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -31,6 +33,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "gh-pages": "^6.3.0",
     "shadcn": "^4.7.0",
     "tailwindcss": "^4"
   }

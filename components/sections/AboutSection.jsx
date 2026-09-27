@@ -95,7 +95,6 @@ export default function AboutSection() {
               className={styles.photoImg}
             />
           </div>
-          <p className={styles.signature}>{profile.name.first}</p>
         </div>
 
         {/* Social icons */}
