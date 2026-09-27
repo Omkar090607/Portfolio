@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
 import profile from '@/data/profile.json'
 import content from '@/data/content.json'
+import { withBasePath } from '@/lib/siteConfig'
 import styles from '@/styles/sections/VideoIntro.module.css'
 
 const CinematicLayer = dynamic(() => import('@/components/three/CinematicLayer'), { ssr: false })
@@ -85,7 +86,7 @@ export default function VideoIntro() {
       {/* 1 - Blurred ambient background (static image, no video asset available) */}
       <Image
         ref={bgImgRef}
-        src="/assets/intro.jpg"
+        src={withBasePath('/assets/intro.jpg')}
         alt=""
         aria-hidden="true"
         fill
@@ -97,7 +98,7 @@ export default function VideoIntro() {
       {/* 2 - Main image */}
       <Image
         ref={mainImgRef}
-        src="/assets/intro.jpg"
+        src={withBasePath('/assets/intro.jpg')}
         alt={profile.name.full}
         fill
         priority

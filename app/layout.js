@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Baloo_2, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import Cursor from "@/components/ui/Cursor";
-import { SITE_URL } from '@/lib/siteConfig';
+import { SITE_URL, withBasePath } from '@/lib/siteConfig';
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -58,7 +58,7 @@ export const metadata = {
       'B.Tech Computer Technology student and Python Developer building full-stack and AI-powered applications with Python, React, Node.js, and FastAPI.',
     images: [
       {
-        url: '/opengraph-image',
+        url: withBasePath('/opengraph-image'),
         width: 1200,
         height: 630,
         alt: 'Omkar Awaze | Full-Stack & Python Developer Portfolio',
@@ -70,7 +70,7 @@ export const metadata = {
     title: 'Omkar Awaze | Full-Stack & Python Developer',
     description:
       'B.Tech Computer Technology student and Python Developer building full-stack and AI-powered applications with Python, React, Node.js, and FastAPI.',
-    images: ['/opengraph-image'],
+    images: [withBasePath('/opengraph-image')],
   },
   robots: {
     index: true,
@@ -87,21 +87,21 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicons/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/favicons/favicon.ico', sizes: 'any' },
+      { url: withBasePath('/favicons/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
+      { url: withBasePath('/favicons/favicon-32x32.png'), sizes: '32x32', type: 'image/png' },
+      { url: withBasePath('/favicons/favicon-48x48.png'), sizes: '48x48', type: 'image/png' },
+      { url: withBasePath('/favicons/favicon.ico'), sizes: 'any' },
     ],
     apple: [
-      { url: '/favicons/apple-touch-icon.png' },
-      { url: '/favicons/apple-touch-icon-180x180.png', sizes: '180x180', type: 'image/png' },
+      { url: withBasePath('/favicons/apple-touch-icon.png') },
+      { url: withBasePath('/favicons/apple-touch-icon-180x180.png'), sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'icon', url: '/favicons/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { rel: 'icon', url: '/favicons/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      { rel: 'icon', url: withBasePath('/favicons/android-chrome-192x192.png'), sizes: '192x192', type: 'image/png' },
+      { rel: 'icon', url: withBasePath('/favicons/android-chrome-512x512.png'), sizes: '512x512', type: 'image/png' },
     ],
   },
-  manifest: '/favicons/manifest.webmanifest',
+  manifest: withBasePath('/favicons/manifest.webmanifest'),
 };
 
 export default function RootLayout({ children }) {

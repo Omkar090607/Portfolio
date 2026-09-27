@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 import profile from '@/data/profile.json'
+import { withBasePath } from '@/lib/siteConfig'
 import styles from '@/styles/sections/ProjectsSection.module.css'
 
 const PROJECTS = profile.projects
@@ -135,7 +136,7 @@ export default function ProjectsSection() {
                 className={styles.slideBg}
               >
                 <Image
-                  src={proj.image}
+                  src={withBasePath(proj.image)}
                   alt={proj.title}
                   fill
                   quality={100}
